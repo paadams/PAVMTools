@@ -47,3 +47,6 @@ param(
 }
      END{}
 }
+
+Export-ModuleMember -Variable PAErrorLogPreference
+Export-ModuleMember -Function Get-PAVMwareInfo
