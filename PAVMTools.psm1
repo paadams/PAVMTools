@@ -1,5 +1,5 @@
 $PAErrorLogPreference = 'C:\temp\pa-errors.log'
-function Get-PAVMwareInfo {
+function Get-PAVMInfo {
 
 <#
 .SYNOPSIS
@@ -10,9 +10,9 @@ Queries hardware and other information from vCenter for VMs
 .PARAMETER ComputerName
 The name of the VM to query
 .EXAMPLE
-Get-VMinfo -ComputerName WHATEVER
+Get-PAVMinfo -ComputerName WHATEVER
 .EXAMPLE
-Get-Content c:\servers.txt | Get-VMinfo | Format-Table
+Get-Content c:\servers.txt | Get-PAVMinfo
 #>
 [CmdletBinding()]
 param(
@@ -41,7 +41,7 @@ param(
                            'ToolsStatus' = $vm.Guest.ToolsVersionStatus;
                            'HardwareVersion' = $vm.Config.Version}                         
                 $obj = New-Object -TypeName psobject -Property $props
-                $obj.PSObject.TypeNames.Insert(0,'PA.VMwareInfo')
+                $obj.PSObject.TypeNames.Insert(0,'PA.PAVMInfo')
                 Write-Output $obj
      }
 }
@@ -49,4 +49,4 @@ param(
 }
 
 Export-ModuleMember -Variable PAErrorLogPreference
-Export-ModuleMember -Function Get-PAVMwareInfo
+Export-ModuleMember -Function Get-PAVMInfo
