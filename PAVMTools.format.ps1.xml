@@ -4,7 +4,7 @@
         <View>
             <Name>PA.VMwareInfo</Name>
             <ViewSelectedBy>
-                <TypeName>PA.VMwareInfo</TypeName>
+                <TypeName>PA.VMInfo</TypeName>
             </ViewSelectedBy>
             <TableControl>
                 <TableHeaders>
