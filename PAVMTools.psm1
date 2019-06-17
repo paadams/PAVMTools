@@ -1,5 +1,5 @@
 $PAErrorLogPreference = 'C:\temp\pa-errors.log'
-function Get-PAVMInfo {
+function Get-VMInfo {
 
 <#
 .SYNOPSIS
@@ -41,7 +41,7 @@ param(
                            'ToolsStatus' = $vm.Guest.ToolsVersionStatus;
                            'HardwareVersion' = $vm.Config.Version}                         
                 $obj = New-Object -TypeName psobject -Property $props
-                $obj.PSObject.TypeNames.Insert(0,'PA.PAVMInfo')
+                $obj.PSObject.TypeNames.Insert(0,'PA.VMInfo')
                 Write-Output $obj
      }
 }
@@ -49,4 +49,4 @@ param(
 }
 
 Export-ModuleMember -Variable PAErrorLogPreference
-Export-ModuleMember -Function Get-PAVMInfo
+Export-ModuleMember -Function Get-VMInfo
